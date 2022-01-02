@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//主頁面
+Route::get('/', [\App\Http\Controllers\homeController::class, 'index'])
+    ->name('index');
+Route::post('/create_story',[\App\Http\Controllers\homeController::class,'create_story'])
+    ->name('create_story');
+Route::get('/delete_data', [\App\Http\Controllers\homeController::class, 'delete_data'])
+    ->name('delete_data');
+
