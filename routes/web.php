@@ -20,4 +20,7 @@ Route::post('/create_story',[\App\Http\Controllers\homeController::class,'create
     ->name('create_story');
 Route::get('/delete_data', [\App\Http\Controllers\homeController::class, 'delete_data'])
     ->name('delete_data');
-
+Route::get('/get_data', [\App\Http\Controllers\homeController::class, 'get_data'])
+    ->name('get_data');
+Route::post('/edit_data', [\App\Http\Controllers\homeController::class, 'edit_data'])
+    ->name('edit_data');

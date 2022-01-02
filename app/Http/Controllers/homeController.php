@@ -11,7 +11,13 @@ class homeController extends Controller
 {
     public function index(Request $request)
     {
-        $data = DB::table('t_story')->get();
+        $search_content = $request->get('search_content');
+        $data = DB::table('t_story');
+        if ($search_content) {
+            $data->orwhere('title','like','%'. $search_content .'%');
+            $data->orwhere('content','like','%'. $search_content .'%');
+        }
+        $data = $data->get();
 
         return view('pages.home', compact('data', $data));
     }
@@ -46,7 +52,27 @@ class homeController extends Controller
     {
         try {
             $id = $request->get('id');
-            $data = DB::table('users')->where('storyid', $id)->get();
+//            dd($id);
+            $data = DB::table('t_story')->where('storyid', $id)->get();
+//            dd($data);
+            return $data;
+        } catch (\Exception $exception) {
+            $exception;
+        }
+
+    }
+
+    public function edit_data(Request $request)
+    {
+        try {
+            $id = $request->get('id');
+            $title=$request->get_title;
+            $content=$request->get_content;
+//            dd($request->get_title);
+            $data = DB::table('t_story')
+                ->where('storyid', $id)
+                ->update(['title'=>$title,'content'=>$content]);
+//            dd($data);
             return $data;
         } catch (\Exception $exception) {
             $exception;
