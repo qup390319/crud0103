@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Middleware\EncryptCookies;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+//use Maatwebsite\Excel\Excel;
 use Mockery\CountValidator\Exact;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class homeController extends Controller
 {
@@ -79,4 +82,9 @@ class homeController extends Controller
         }
 
     }
+
+//    public function export()
+//    {
+//        return Excel::download(new UsersExport, 'users.xlsx');
+//    }
 }
