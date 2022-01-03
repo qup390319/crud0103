@@ -7,7 +7,7 @@
             <button type="button" class="btn btn-outline-success" id="create" data-bs-toggle="modal"
                     data-bs-target="#createModal">新增一篇文章
             </button>
-{{--            <button  type="button" class="btn btn-outline-info" id="download" onclick="download()">下載為 .xslx</button>--}}
+            <button  type="button" class="btn btn-outline-info" id="download" onclick="download()">下載為 .xslx</button>
         </div>
         <form class="d-flex" style="margin-bottom: 10px"  action="{{route('index')}}">
             <input class="form-control me-2" type="search" name="search_content" id="searchwords" placeholder="Search" aria-label="Search" >
@@ -200,8 +200,8 @@
             })
         })
 
-        {{--function download() {--}}
-        {{--    window.location.href = "{{route('export')}}";--}}
-        {{--}--}}
+        function download() {
+            window.location.href = "{{route('export')}}";
+        }
     </script>
 @endsection

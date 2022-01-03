@@ -3,15 +3,18 @@
 namespace App\Exports;
 
 use App\Models\User;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class UsersExport implements FromCollection
+class UsersExport implements FromView
 {
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function collection()
+    public function view(): View
     {
-        return User::all();
+        $data = DB::table('t_story')->get();
+        return view('export.export',compact('data',$data));
     }
 }

@@ -24,5 +24,5 @@ Route::get('/get_data', [\App\Http\Controllers\homeController::class, 'get_data'
     ->name('get_data');
 Route::post('/edit_data', [\App\Http\Controllers\homeController::class, 'edit_data'])
     ->name('edit_data');
-//Route::get('/users/export/', [\App\Http\Controllers\homeController::class, 'export'])
-//    ->name('export');
+Route::get('/users/export/', [\App\Http\Controllers\homeController::class, 'export'])
+    ->name('export');

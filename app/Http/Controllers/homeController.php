@@ -83,8 +83,9 @@ class homeController extends Controller
 
     }
 
-//    public function export()
-//    {
-//        return Excel::download(new UsersExport, 'users.xlsx');
-//    }
+    public function export(Request $request)
+    {
+
+        return Excel::download(new UsersExport, 'users.xlsx');
+    }
 }
